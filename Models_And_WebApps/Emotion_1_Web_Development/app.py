@@ -21,6 +21,6 @@ def video():
     return Response(gen(Video()), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
-@app.run(debug=False)
+@app.run(debug=True)
 def little(x):
     return "smile"
