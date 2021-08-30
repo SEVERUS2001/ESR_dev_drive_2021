@@ -19,7 +19,5 @@ def gen(camera):
 def video():
     return Response(gen(Video()), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-
-@app.run(debug=True)
-def little(x):
-    return "smile"
+if __name__=="__main__":
+    app.run(debug=True, port=1000)
