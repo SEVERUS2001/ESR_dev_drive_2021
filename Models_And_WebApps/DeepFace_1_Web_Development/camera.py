@@ -9,7 +9,8 @@ faceCascade= cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalf
 
 class Video(object):
     def __init__(self):
-         self.cap = cv2.VideoCapture(0) #camera acessing
+         self.cap = cv2.VideoCapture(0)#camera acessing
+         cv2.destroyAllWindows()
     def __del__(self):
        self.cap.release()
     def get_frame(self):
