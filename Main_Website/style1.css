@@ -73,6 +73,17 @@
 	height: 100vh;
 }
 
+.adjust{
+	margin-right: 0;
+	padding-left:25rem;
+	padding-right:0;
+	padding-top: 10rem;
+	padding-bottom: 0;
+	margin-bottom:0;
+}
+
+
+
 
 @media only screen and (max-width: 767px) {
 	.navbar-nav.ml-auto {
