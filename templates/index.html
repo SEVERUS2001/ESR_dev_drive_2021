@@ -474,7 +474,7 @@
             <nav class="nav">
                 <div class="container">
                     <div class="logo">
-                        <a href="#">ESR-ML</a>
+                        <a href="#">ESR</a>
                     </div>
                     <div id="mainListDiv" class="main_list">
                         <ul class="navlinks">
@@ -499,21 +499,23 @@
 
     <section id="about">
         <div class=sub-heading>About</h2>
-            <p>Facial recognition systems can be used to identify people in photos, videos, or in real-time. Facial
-                recognition
-                is a category of biometric security.Sign language recognition system is to provide an efficient and
-                accurate
-                system to convert sign language into text so that communication between deaf and normal people can be
-                more
-                convenient.</p>
+            <p>In these modern times(specially the post-pandemic era) Facial emotion recognition systems and sign language recoginer have grown in importance 
+                as the world marches towards digitalization. Emotion recogniser have wide range of application in the field biometric security, criminal investigations
+                and medical examination while sign language can be seen as the great tool to improve communication between normal and differently able individuals bridging 
+                socital gaps and providing equal opportunities for all. So contributing towords this growth of these resouces we have built to two CNN(Convulutional Nueral Network) models for emotion and sign
+                language using <b>tensorflow</b> and <b>keras</b>.
+            </p>
         </div>
     </section>
     <hr>
     <section id="face">
         <div class=sub-heading>EMOTION RECONGITION</h2>
-            <p>A facial recognition system is a technology capable of matching a human face from a digital image or a
-                video frame against a database of faces, typically employed to authenticate users through ID
-                verification services, works by pinpointing and measuring facial features from a given image.</p>
+            <p>This CNN(Convulutional Neural Network) for emotion is trained on gray scale images with vadilation accuracy of more than
+                60%. This model this designed to recognise 7 emotions namely <b>Angry,Disgust,Fear,Happy,Neutral,Sad and Surprise.</b>
+                As you can see below there are two channels capture_1 and capture_2: The only difference between the two channels is  that for channel capture_1
+                we have locally trained the model but for channel capture_2 we have use a pre trained model <span><a href="https://github.com/serengil/deepface">DeepFace</a></span> to predict
+                results. Moreover to enchance the overall real time capture experience for the user <b>OpenCV</b> have been employed.
+                </p>
             <a href="emotion_video_1" class="button">Capture_1</a>
             <a href="emotion_video_2" class="button">Capture_2</a>
         </div>
@@ -521,9 +523,10 @@
     <hr>
     <section id="sign">
         <div class=sub-heading>SIGN LANGUAUGE</h2>
-            <p>Sign languages are languages that use the visual-manual modality to convey meaning. Sign languages are
-                expressed through manual articulations in combination with non-manual elements. Sign languages are
-                full-fledged natural languages with their own grammar and lexicon.</p>
+            <p>This CNN(Convulutional Neural Network) to recognise sign language is trained on gray scale images with vadilation accuracy about
+                90%. This is an elementary model this designed to recognise all the <b>American Sign Language letters</b>. In addition to recogining the letters
+                it will predict blank that is in case no letter is given the ouput will be blank.Like emotion capture <b>OpenCV</b> has been utilized to convert the 
+                colored images to gray scale images to suit the models requiment and to boost the real time image capture exerience.</p>
             <a href="sign_video" class="button">Capture</a>
         </div>
     </section>
