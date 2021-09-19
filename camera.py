@@ -19,8 +19,8 @@ class Video_Emotion_1(object):
     def __init__(self):
          self.cap = cv2.VideoCapture(0) #camera acessing
     def __del__(self):
+       print("pikachu")
        self.cap.release()
-       cv2.destroyAllWindows()
     def get_frame(self):
         _, frame = self.cap.read()
         if not _:
@@ -45,7 +45,7 @@ class Video_Emotion_1(object):
               cv2.putText(frame,label,label_position,cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),2)
            else:
                cv2.putText(frame,'No Faces',(30,80),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),2)
-           cv2.imshow('Emotion Detector',frame)
+           #cv2.imshow('Emotion Detector',frame)
            _,jpg=cv2.imencode(".jpg",frame)
            if cv2.waitKey(1) & 0xFF == ord('q'): #press q to exit the camera window!
                        break
@@ -72,7 +72,7 @@ class Video_Emotion_2(object):
                     label_position=(x,y-20)
                     font = cv2.FONT_HERSHEY_SIMPLEX #chosing font
                     cv2.putText(frame,label,label_position, font, 1, (0,0,255),2) #writing text
-                cv2.imshow('Emotion Detection', frame) #final show
+                #cv2.imshow('Emotion Detection', frame) #final show
                 _,jpg=cv2.imencode(".jpg",frame)
                 return jpg.tobytes()
         except:
@@ -86,7 +86,6 @@ class Video_Sign(object):
          self.cap = cv2.VideoCapture(0) #camera acessing
     def __del__(self):
        self.cap.release()
-       cv2.destroyAllWindows()
     
     def get_frame(self):
         def letter(r):
@@ -110,12 +109,12 @@ class Video_Sign(object):
         th3 = cv2.adaptiveThreshold(blur,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY_INV,11,2)
         ret, res = cv2.threshold(th3, 70, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
         test_image=cv2.resize(res,(128,128))
-        cv2.imshow("test",test_image)
+        #cv2.imshow("test",test_image)
         result=signModel.predict(test_image.reshape(1, 128, 128, 1))
         rounded_predictions=np.argmax(result,axis=-1)
 #     print(rounded_predictions[0])
         cv2.putText(frame,str(letter(rounded_predictions[0])),(80,100),cv2.FONT_HERSHEY_COMPLEX,2,(0,255,0),2)
-        cv2.imshow('Sign Language Recognisation', frame)
+        #cv2.imshow('Sign Language Recognisation', frame)
         _,jpg=cv2.imencode(".jpg",frame)
         return jpg.tobytes()
 

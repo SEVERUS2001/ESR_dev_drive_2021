@@ -1,14 +1,17 @@
 from flask import  Flask, render_template,Response
 from camera import Video_Emotion_1, Video_Sign, Video_Emotion_2
+global video1, video2, video3
 
 
 app = Flask(__name__)
 def gen(camera):
     while True:
       frame=camera.get_frame()
+      print("camera reading....")
       yield(b'--frame\r\n'
     b'Content-Type: image/jpeg\r\n\r\n'+frame+
     b'\r\n\r\n')
+      print("cameraReading")
 
 
 #----------------home page--------------
@@ -24,7 +27,6 @@ def output_emotion_1():
 #--------------------emotion video 1-----------
 @app.route("/video_emotion_1")
 def video_emotion_1():
-    #return render_template('output.html')
     return Response(gen(Video_Emotion_1()), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 #--------------------emotion channel 2-----------
