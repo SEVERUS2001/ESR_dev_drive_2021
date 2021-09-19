@@ -522,7 +522,6 @@
             </div>
         </div>
     </section>
-
     <section id="about">
         <div class=sub-heading>
             <h3>About</h3>
@@ -541,6 +540,7 @@
             <!-- <img src="https://cdn.discordapp.com/attachments/866899782827114499/888737110226501672/face.jpg"><br> -->
         </div>
     </section>
+
     <hr>
     <section id="face">
         <div class=sub-heading>
@@ -560,6 +560,8 @@
         </div>
     </section>
     <hr>
+    <video style="display:none" autoplay="false" id="videoElement">
+        </video>
     <section id="sign">
         <div class=sub-heading>
             <h3>SIGN LANGUAUGE</h3>
@@ -2276,6 +2278,31 @@
                 $('.nav').removeClass('affix');
             }
         });
+        var video = document.querySelector("#videoElement");
+
+        if (navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function (stream) {
+                    video.srcObject = stream;
+                })
+                .catch(function (err0r) {
+                    alert("Please give access to camera or there is somethiing wrong with ypur camera")
+                    console.log("Something went wrong!");
+                });
+        }
+
+        function stop(e) {
+            var stream = video.srcObject;
+            var tracks = stream.getTracks();
+
+            for (var i = 0; i < tracks.length; i++) {
+                var track = tracks[i];
+                track.stop();
+            }
+
+            video.srcObject = null;
+        }
+        
     </script>
 </body>
 
