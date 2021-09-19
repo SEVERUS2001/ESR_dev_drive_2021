@@ -20,6 +20,7 @@ class Video_Emotion_1(object):
          self.cap = cv2.VideoCapture(0) #camera acessing
     def __del__(self):
        self.cap.release()
+       cv2.destroyAllWindows()
     def get_frame(self):
         _, frame = self.cap.read()
         if not _:
@@ -85,6 +86,7 @@ class Video_Sign(object):
          self.cap = cv2.VideoCapture(0) #camera acessing
     def __del__(self):
        self.cap.release()
+       cv2.destroyAllWindows()
     
     def get_frame(self):
         def letter(r):
