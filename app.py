@@ -20,22 +20,22 @@ def index():
     return render_template('index.html')
 
 #--------------------emotion channel 1-----------
-@app.route("/emotion_video_1")
+@app.route("/emotion_video_2")
 def output_emotion_1():
     return render_template('output_emotion_1.html')
 
 #--------------------emotion video 1-----------
-@app.route("/video_emotion_1")
+@app.route("/video_emotion_2")
 def video_emotion_1():
     return Response(gen(Video_Emotion_1()), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 #--------------------emotion channel 2-----------
-@app.route("/emotion_video_2")
+@app.route("/emotion_video_1")
 def output_emotion_2():
     return render_template('output_emotion_2.html')
 
 #--------------------emotion video 2-----------
-@app.route("/video_emotion_2")
+@app.route("/video_emotion_1")
 def video_emotion_2():
     return Response(gen(Video_Emotion_2()), mimetype='multipart/x-mixed-replace; boundary=frame')
 
