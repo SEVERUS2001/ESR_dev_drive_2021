@@ -2263,9 +2263,11 @@
             $("#mainListDiv").fadeIn();
 
         });
-        // $(".navlinks").on("click", "a",null, function () {
-        //     navMain.collapse('hide');
-        // });
+        $(".navlinks").on("click", "a",null, function () {
+            $('.navTrigger').toggleClass('active');
+            $("#mainListDiv").toggleClass("show_list");
+            $("#mainListDiv").fadeIn();
+        });
 
     </script>
 
@@ -2286,7 +2288,7 @@
                     video.srcObject = stream;
                 })
                 .catch(function (err0r) {
-                    alert("Please give access to camera or there is something wrong with your camera!")
+                    alert("Please give access to camera or there is somethiing wrong with ypur camera")
                     console.log("Something went wrong!");
                 });
         }
